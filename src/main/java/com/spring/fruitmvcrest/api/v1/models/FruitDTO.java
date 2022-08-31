@@ -2,9 +2,13 @@ package com.spring.fruitmvcrest.api.v1.models;
 
 import com.spring.fruitmvcrest.models.Price;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@NoArgsConstructor
+@Getter
+@Setter
 public class FruitDTO {
 	private Long id;
 	private String name;

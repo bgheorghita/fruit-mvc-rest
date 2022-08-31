@@ -1,5 +1,6 @@
 package com.spring.fruitmvcrest.api.v1.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.spring.fruitmvcrest.models.Currency;
@@ -16,5 +17,5 @@ public class PriceDTO {
 	private Long id;
 	private Currency currency;
 	private Float units;
-	private List<Fruit> fruits;
+	private List<Fruit> fruits = new ArrayList<>();
 }

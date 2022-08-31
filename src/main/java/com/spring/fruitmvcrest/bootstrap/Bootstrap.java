@@ -40,7 +40,7 @@ public class Bootstrap implements CommandLineRunner{
 		priceRepository.save(orangePrice);
 		
 		Price avocadoPrice = new Price();
-		avocadoPrice.setCurrency(Currency.EUR);
+		avocadoPrice.setCurrency(Currency.USD);
 		avocadoPrice.setId(3L);
 		avocadoPrice.setUnits(30F);
 		priceRepository.save(avocadoPrice);
