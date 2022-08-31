@@ -11,7 +11,7 @@
 	<groupId>com.spring</groupId>
 	<artifactId>fruit-mvc-rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>fruit-mvc-rest</name>
+	<name>-fruit-mvc-rest</name>
 	<description>RESTFul project</description>
 	<properties>
 		<java.version>11</java.version>
