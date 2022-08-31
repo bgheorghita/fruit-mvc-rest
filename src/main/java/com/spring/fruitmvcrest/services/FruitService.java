@@ -10,6 +10,6 @@ public interface FruitService {
 	FruitDTO getFruitById(Long fruitId) throws ResourceNotFoundException;
 	FruitDTO createNewFruit(FruitDTO fruit);
 	FruitDTO updateFruit(Long id, FruitDTO fruit);
-	FruitDTO patchFruit(Long id, FruitDTO fruit);
+	FruitDTO patchFruit(Long id, FruitDTO fruit) throws ResourceNotFoundException;
 	void deleteFruitById(Long fruitId);
 }

@@ -26,13 +26,17 @@ public class FruitServiceImpl implements FruitService{
 	@Override
 	public List<FruitDTO> getAllFruits() {
 		List<FruitDTO> fruits = new ArrayList<>();
-		fruitRepository.findAll().stream().forEach(fruit -> fruits.add(fruitMapper.fruitToFruitDTO(fruit)));
+		fruitRepository.findAll()
+					   .stream()
+					   .forEach(fruit -> fruits.add(fruitMapper.fruitToFruitDTO(fruit)));
 		return fruits;
 	}
 
 	@Override
 	public FruitDTO getFruitById(Long fruitId) throws ResourceNotFoundException {
-		return fruitMapper.fruitToFruitDTO(fruitRepository.findById(fruitId).orElseThrow(ResourceNotFoundException::new));
+		return fruitMapper.fruitToFruitDTO(fruitRepository
+				.findById(fruitId)
+				.orElseThrow(ResourceNotFoundException::new));
 	}
 
 	@Override
@@ -53,7 +57,7 @@ public class FruitServiceImpl implements FruitService{
 	}
 
 	@Override
-	public FruitDTO patchFruit(Long id, FruitDTO fruit) {
+	public FruitDTO patchFruit(Long id, FruitDTO fruit) throws ResourceNotFoundException {
 		Optional<Fruit> newFruitOptional = fruitRepository.findById(id);
 		
 		if(newFruitOptional.isPresent()) {
@@ -69,7 +73,7 @@ public class FruitServiceImpl implements FruitService{
 			return saveAndReturnDTO(newFruit);
 		}
 		
-		return null;
+		throw new ResourceNotFoundException();
 	}
 
 	@Override

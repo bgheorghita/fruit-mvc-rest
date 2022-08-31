@@ -55,7 +55,7 @@ public class FruitController {
 	
 	@PatchMapping("/{fruitId}")
 	@ResponseStatus(HttpStatus.OK)
-	public FruitDTO patchFruit(@PathVariable Long fruitId, @RequestBody FruitDTO fruit) {
+	public FruitDTO patchFruit(@PathVariable Long fruitId, @RequestBody FruitDTO fruit) throws ResourceNotFoundException {
 		return fruitService.patchFruit(fruitId, fruit);
 	}
 	
