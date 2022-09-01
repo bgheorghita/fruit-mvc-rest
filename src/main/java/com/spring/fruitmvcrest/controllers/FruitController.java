@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.fruitmvcrest.api.v1.models.FruitDTO;
+import com.spring.fruitmvcrest.api.v1.models.PriceDTO;
 import com.spring.fruitmvcrest.exceptions.ResourceNotFoundException;
 import com.spring.fruitmvcrest.services.FruitService;
+import com.spring.fruitmvcrest.services.PriceService;
 
 @RestController
 @RequestMapping(FruitController.BASE_URL)
@@ -24,11 +26,13 @@ public class FruitController {
 	
 	public final static String BASE_URL = "/api/v1/fruits";
 	private final FruitService fruitService;
+	private final PriceService priceService;
 	
-	public FruitController(FruitService fruitService) {
+	public FruitController(FruitService fruitService, PriceService priceService) {
 		this.fruitService = fruitService;
+		this.priceService = priceService;
 	}
-	
+
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
 	public List<FruitDTO> getAllFruits() {
@@ -63,6 +67,11 @@ public class FruitController {
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteFruitById(@PathVariable Long fruitId) {
 		fruitService.deleteFruitById(fruitId);
+	}
+	
+	@GetMapping("/{fruitId}/price")
+	public PriceDTO getFruitPriceById(@PathVariable Long fruitId) throws ResourceNotFoundException {
+		return priceService.findPriceByFruitId(fruitId);
 	}
 }
 

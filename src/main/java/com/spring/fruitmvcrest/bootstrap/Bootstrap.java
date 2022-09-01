@@ -17,13 +17,10 @@ public class Bootstrap implements CommandLineRunner{
 	private final FruitRepository fruitRepository;
 	private final PriceRepository priceRepository;
 	
-	
 	public Bootstrap(FruitRepository fruitRepository, PriceRepository priceRepository) {
 		this.fruitRepository = fruitRepository;
 		this.priceRepository = priceRepository;
 	}
-
-
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -55,7 +52,6 @@ public class Bootstrap implements CommandLineRunner{
 		orange.setId(2L);
 		orange.setName("Orange");
 		orange.setPrice(orangePrice);
-		orangePrice.setFruits(Arrays.asList(orange));
 		
 		Fruit avocado = new Fruit();
 		avocado.setId(3L);
@@ -63,9 +59,16 @@ public class Bootstrap implements CommandLineRunner{
 		avocado.setPrice(avocadoPrice);
 		avocadoPrice.setFruits(Arrays.asList(avocado));
 		
+		Fruit lemon = new Fruit();
+		lemon.setId(4L);
+		lemon.setName("Lemon");
+		lemon.setPrice(orangePrice);
+		orangePrice.setFruits(Arrays.asList(orange, lemon));
+		
 		fruitRepository.save(apple);
 		fruitRepository.save(orange);
 		fruitRepository.save(avocado);
+		fruitRepository.save(lemon);
 		
 		System.out.println("Data Loaded");
 	}
