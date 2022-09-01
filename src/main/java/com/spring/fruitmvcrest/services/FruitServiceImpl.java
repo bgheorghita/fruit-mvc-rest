@@ -11,6 +11,7 @@ import com.spring.fruitmvcrest.api.v1.models.FruitDTO;
 import com.spring.fruitmvcrest.exceptions.ResourceNotFoundException;
 import com.spring.fruitmvcrest.models.Fruit;
 import com.spring.fruitmvcrest.repositories.FruitRepository;
+import com.spring.fruitmvcrest.repositories.PriceRepository;
 
 @Service
 public class FruitServiceImpl implements FruitService{
